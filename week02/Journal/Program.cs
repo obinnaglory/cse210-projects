@@ -1,8 +1,8 @@
 using System;
 
-class Program
+internal class Program
 {
-    static void Main()
+    private static void Main(string[] args)
     {
         Journal journal = new Journal();
         PromptGenerator promptGenerator = new PromptGenerator();
@@ -33,20 +33,19 @@ class Program
                     break;
 
                 case "2":
-                    Console.WriteLine("\nYour Journal Entries:");
-                    Journal.DisplayEntry();
+                    journal.DisplayEntries();
                     break;
 
                 case "3":
                     Console.Write("Enter a filename to save to: ");
                     string saveFile = Console.ReadLine();
-                    journal.SaveToFile(saveFile);
+                    journal.SaveToFile();
                     break;
 
                 case "4":
                     Console.Write("Enter a filename to load from: ");
                     string loadFile = Console.ReadLine();
-                    journal.LoadFromFile(loadFile);
+                    journal.LoadFromFile("saved.txt");
                     break;
 
                 case "5":
